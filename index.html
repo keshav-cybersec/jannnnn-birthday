@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#100b2a">
+<title>Come, Queen ♡</title>
+<style>
+:root{--night:#100b2a;--deep:#1b1240;--purple:#9b7cff;--pink:#f4a7e8;--white:#fff7ff}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:#080617;color:var(--white);font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif}
+body{min-height:100vh;display:flex;justify-content:center;align-items:center;padding:18px;overflow-x:hidden}
+.phone{width:min(100%,420px);height:min(880px,calc(100dvh - 36px));min-height:650px;position:relative;overflow:hidden;border:1px solid #bba6ff55;border-radius:38px;background:radial-gradient(ellipse at 50% 12%,#483271 0%,#211643 38%,#100b2a 78%);box-shadow:0 0 0 7px #ffffff08,0 24px 100px #6d28d933;isolation:isolate}
+@media(max-width:480px){body{padding:0}.phone{width:100%;height:100dvh;min-height:620px;border:0;border-radius:0;box-shadow:none}}
+.sky{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:-1}
+.star{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;box-shadow:0 0 7px 2px #d9c9ff99;animation:twinkle var(--t) ease-in-out infinite alternate}
+.shooting{position:absolute;width:65px;height:2px;background:linear-gradient(90deg,#fff0,white,#e9d5ff00);filter:drop-shadow(0 0 4px #e9d5ff);transform:rotate(-35deg);animation:shoot var(--t) linear infinite;opacity:0}
+.moon{position:absolute;right:12%;top:7%;width:66px;height:66px;border-radius:50%;background:#fff1c9;box-shadow:0 0 25px #fff0c488,0 0 70px #c4b5fd55}
+.moon:after{content:"";position:absolute;left:17px;top:-6px;width:62px;height:62px;border-radius:50%;background:#302050}
+.page{position:absolute;inset:0;overflow-y:auto;scrollbar-width:none;padding:36px 23px 24px;text-align:center}
+.page::-webkit-scrollbar{display:none}
+.welcome{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100%;padding-top:12px;padding-bottom:30px}
+.crown{font-size:2.7rem;filter:drop-shadow(0 0 15px #f4a7e8aa);animation:float 3s ease-in-out infinite alternate}
+.kicker{font-size:.66rem;text-transform:uppercase;letter-spacing:.23em;color:#d9c8ff;margin:13px 0}
+h1{font-family:Georgia,serif;font-weight:normal;font-size:clamp(2.4rem,10vw,3.45rem);line-height:1.05;margin:12px 0;text-shadow:0 0 25px #c084fc55}
+h1 em{color:#f4a7e8;font-style:italic}
+.lead{color:#e5d9fa;line-height:1.7;font-size:.98rem;max-width:300px;margin:12px auto 24px}
+.cta{border:1px solid #f9d2ff80;border-radius:999px;padding:14px 24px;font-size:.98rem;font-weight:800;color:#28133d;background:linear-gradient(135deg,#f8c9ef,#c4b5fd);box-shadow:0 0 28px #c084fc35;cursor:pointer;transition:transform .2s,filter .2s}
+.cta:active{transform:scale(.97)}
+.no{position:relative;background:#ffffff0b;color:#e5d9fa;border-color:#c4b5fd44;box-shadow:none;margin-left:8px}
+.under{font-size:.72rem;color:#bbaedb;margin-top:22px}
+.hidden{display:none!important}
+.count-page{padding-top:32px}
+.topline{font-size:.67rem;letter-spacing:.2em;text-transform:uppercase;color:#d9c8ff}
+.count-title{font:normal 2.2rem Georgia,serif;margin:12px 0 6px}
+.count-title span{color:#f4a7e8;font-style:italic}
+.subtitle{font-size:.83rem;color:#d9ccef;line-height:1.6;margin:0 auto 18px;max-width:300px}
+.countbox{background:linear-gradient(145deg,#ffffff12,#ffffff05);border:1px solid #c4b5fd42;border-radius:23px;padding:16px 10px 13px;box-shadow:inset 0 0 25px #c4b5fd09,0 12px 40px #05021425;backdrop-filter:blur(5px)}
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}
+.unitbox{padding:8px 1px;border-radius:13px;background:#100b2a70;border:1px solid #c4b5fd22}
+.num{font-size:clamp(1.5rem,6vw,2.05rem);font-weight:850;font-variant-numeric:tabular-nums;color:#f7c8f0;display:block;text-shadow:0 0 15px #e879f955}
+.label{font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:#d8c8f5}
+.note{font-family:Georgia,serif;font-style:italic;font-size:.9rem;line-height:1.55;color:#f0ddff;margin:14px auto 4px;min-height:44px}
+.tap-hint{font-size:.67rem;color:#bdb0dd;margin:3px 0 13px}
+.notes{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0 10px}
+.note-btn{border:1px solid #d8b4fe40;background:#ffffff0b;border-radius:15px;color:#f8edff;padding:11px 8px;font-size:.76rem;cursor:pointer}
+.note-btn:active{transform:scale(.97)}
+.art{width:100%;margin:10px auto 0;display:block;max-height:205px;filter:drop-shadow(0 0 18px #a78bfa25)}
+.art-caption{font:italic .77rem Georgia,serif;color:#d9c8ff;margin-top:-2px}
+.msg{display:none;text-align:left;margin:12px 0;padding:15px 16px;border:1px solid #e9d5ff44;border-radius:18px;background:#130d2beF;font-size:.84rem;line-height:1.7;animation:appear .35s ease}
+.msg.show{display:block}
+.birthday{display:none;position:absolute;inset:0;z-index:5;overflow:hidden;background:radial-gradient(ellipse at center,#593276f5,#170d31 75%);padding:30px 23px;align-items:center;justify-content:center;flex-direction:column;text-align:center}
+.birthday.show{display:flex}
+.bday-stars{font-size:2rem;letter-spacing:.1em}
+.birthday h2{font:normal clamp(2.5rem,11vw,3.6rem)/1.08 Georgia,serif;color:#ffd7f6;text-shadow:0 0 30px #f0abfc66;margin:18px 0}
+.birthday p{line-height:1.8;color:#f3e8ff;font-size:.95rem;max-width:320px}
+.bday-sign{font:italic 1rem Georgia,serif;color:#f0abfc;margin-top:14px}
+.heart{position:absolute;bottom:-35px;animation:rise var(--t) linear forwards;pointer-events:none;z-index:7}
+@keyframes twinkle{from{opacity:.2;transform:scale(.6)}to{opacity:1;transform:scale(1.5)}}
+@keyframes shoot{0%{transform:translate(80px,-60px) rotate(-35deg);opacity:0}7%{opacity:1}25%{opacity:0}100%{transform:translate(-300px,260px) rotate(-35deg);opacity:0}}
+@keyframes float{from{transform:translateY(0) rotate(-5deg)}to{transform:translateY(-9px) rotate(5deg)}}
+@keyframes appear{from{opacity:0;transform:translateY(7px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes rise{to{transform:translateY(-115vh) rotate(30deg);opacity:0}}
+@media(max-height:720px){.page{padding-top:22px}.art{max-height:155px}.count-title{font-size:1.9rem}.lead{margin-bottom:16px}}
+</style>
+</head>
+<body>
+<main class="phone" id="phone">
+  <div class="sky" id="sky" aria-hidden="true"><div class="moon"></div></div>
+  <section class="page welcome" id="welcome">
+    <div class="crown">👑</div>
+    <div class="kicker">a little question for my favourite person</div>
+    <h1>Come, <em>Queen</em>…</h1>
+    <p class="lead">Jannnnn, would you like to step into my heart? ♡</p>
+    <div>
+      <button class="cta" onclick="enterHeart()">YES, OPEN MY HEART 💗</button>
+      <button class="cta no" id="noBtn" onclick="noThanks()">No 🙈</button>
+    </div>
+    <div class="under">psst… the stars are waiting for you ✦</div>
+  </section>
+
+  <section class="page count-page hidden" id="countPage">
+    <div class="topline">✦ your own little universe ✦</div>
+    <h2 class="count-title">For you, <span>jannnnn</span></h2>
+    <p class="subtitle">Every star in this sky is a tiny reminder that you are loved. Come back anytime. 🌙</p>
+    <div class="countbox">
+      <div class="topline">until your birthday magic begins</div>
+      <div class="countdown" style="margin-top:12px">
+        <div class="unitbox"><span class="num" id="days">--</span><span class="label">Days</span></div>
+        <div class="unitbox"><span class="num" id="hours">--</span><span class="label">Hours</span></div>
+        <div class="unitbox"><span class="num" id="minutes">--</span><span class="label">Minutes</span></div>
+        <div class="unitbox"><span class="num" id="seconds">--</span><span class="label">Seconds</span></div>
+      </div>
+      <p class="note" id="rotatingNote">“If I could, I'd put your name in every constellation.”</p>
+    </div>
+    <div class="notes">
+      <button class="note-btn" onclick="showNote(0)">💌 Jan, you're my everything</button>
+      <button class="note-btn" onclick="showNote(1)">🌙 Moon wishes</button>
+      <button class="note-btn" onclick="showNote(2)">✨ My jige jige Jan</button>
+      <button class="note-btn" onclick="showNote(3)">🧸 A hug for my darling</button>
+      <button class="note-btn" style="grid-column:1/-1" onclick="showNote(4)">💗 One promise from me</button>
+    </div>
+    <div class="msg" id="msg" role="status"></div>
+    <svg class="art" viewBox="0 0 340 190" role="img" aria-label="A girl and boy sitting together watching the moon under a starry sky">
+      <defs><linearGradient id="water" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6f55a7" stop-opacity=".55"/><stop offset="1" stop-color="#17102f" stop-opacity=".08"/></linearGradient></defs>
+      <ellipse cx="170" cy="175" rx="144" ry="10" fill="#09071c" opacity=".6"/>
+      <path d="M0 136 Q52 111 102 132 T205 129 T340 123 L340 190 L0 190Z" fill="url(#water)"/>
+      <path d="M0 151 Q50 141 90 151 T190 150 T340 146" stroke="#bda8ff" stroke-opacity=".28" fill="none"/>
+      <circle cx="266" cy="37" r="22" fill="#fff0c6" opacity=".95"/>
+      <circle cx="275" cy="29" r="21" fill="#302050"/>
+      <g fill="#fff" opacity=".9"><circle cx="38" cy="31" r="1.5"/><circle cx="85" cy="54" r="1.2"/><circle cx="142" cy="25" r="1.4"/><circle cx="207" cy="20" r="1.2"/><circle cx="309" cy="76" r="1.3"/><circle cx="57" cy="83" r="1.2"/><circle cx="230" cy="69" r="1.1"/></g>
+      <g stroke="#c4b5fd" stroke-width="1.2" opacity=".6"><path d="M37 55v8m-4-4h8"/><path d="M190 52v7m-3.5-3.5h7"/></g>
+      <!-- little hill -->
+      <path d="M0 161 Q70 137 136 158 T260 154 T340 160 L340 190 L0 190Z" fill="#17102f"/>
+      <!-- boy -->
+      <g transform="translate(118 111)">
+        <circle cx="0" cy="0" r="12" fill="#2a1729"/>
+        <path d="M-12 -2 Q-14 -18 1 -15 Q13 -14 12 -2 L7 -8 L-4 -8Z" fill="#161020"/>
+        <path d="M-13 14 Q0 6 13 14 L19 49 L-18 49Z" fill="#514080"/>
+        <path d="M-8 45 L-17 65 L-4 65 L4 48Z" fill="#0b091c"/>
+        <path d="M8 46 L17 64 L29 64 L17 43Z" fill="#0b091c"/>
+      </g>
+      <!-- girl -->
+      <g transform="translate(174 108)">
+        <circle cx="0" cy="0" r="12" fill="#6f3b45"/>
+        <path d="M-12 2 Q-19 -16 -1 -17 Q15 -15 13 7 L8 0 L7 -8 L-5 -9 L-11 2Z" fill="#241127"/>
+        <path d="M-13 14 Q0 5 13 14 L26 52 L-26 52Z" fill="#b35f9e"/>
+        <path d="M-16 49 L-28 65 L-14 65 L-3 51Z" fill="#17102b"/>
+        <path d="M13 48 L23 65 L36 65 L23 45Z" fill="#17102b"/>
+      </g>
+      <!-- shoulders gently leaning -->
+      <path d="M132 127 Q147 119 157 132" stroke="#f4a7e8" stroke-width="2" fill="none" opacity=".55"/>
+      <text x="170" y="185" text-anchor="middle" font-size="9" fill="#d8c8ff" font-family="Georgia,serif" font-style="italic">just us, under the same moon ♡</text>
+    </svg>
+    <div class="art-caption">If I were there, I'd sit beside you and watch the stars all night.</div>
+  </section>
+
+  <section class="birthday" id="birthday">
+    <div class="bday-stars">✦ 🌙 ✨ 💜 ✨ 🌙 ✦</div>
+    <h2>Happy Birthday,<br>my life! 💗</h2>
+    <p>Jannnnn, today the whole sky gets to celebrate you. If I could gather every star, every flower, and every little bit of magic in the universe, I'd give it all to you. Thank you for being you. May your life be full of laughter, peace, beautiful dreams, and a love that keeps choosing you. You are so, so special to me. ♡</p>
+    <div style="font-size:2.1rem;margin-top:20px">💐 🧸 💖 🌸 🦋 🎆</div>
+    <div class="bday-sign">forever cheering for you, your person ♡<br><span style="display:inline-block;margin-top:10px">My all-time Dr. Janani 💗🩺</span></div>
+  </section>
+</main>
+<script>
+const birthdayTime=new Date("2026-10-21T00:00:00+05:30").getTime();
+const sky=document.getElementById("sky");
+for(let i=0;i<105;i++){const s=document.createElement("span");s.className="star";s.style.left=Math.random()*100+"%";s.style.top=Math.random()*100+"%";const z=Math.random()*2.3+1;s.style.width=z+"px";s.style.height=z+"px";s.style.setProperty("--t",(1.1+Math.random()*3.6)+"s");s.style.animationDelay=(-Math.random()*4)+"s";sky.appendChild(s)}
+for(let i=0;i<4;i++){const sh=document.createElement("span");sh.className="shooting";sh.style.left=(20+Math.random()*100)+"%";sh.style.top=(Math.random()*70)+"%";sh.style.setProperty("--t",(5+Math.random()*7)+"s");sh.style.animationDelay=(-Math.random()*10)+"s";sky.appendChild(sh)}
+function enterHeart(){document.getElementById("welcome").classList.add("hidden");document.getElementById("countPage").classList.remove("hidden");updateCountdown();if(Date.now()>=birthdayTime)showBirthday()}
+function noThanks(){const b=document.getElementById("noBtn");b.textContent="Are you sure, Queen? 🥺";const lines=["The stars were really hoping you'd say yes ✨","My heart has reserved a little seat for you 💗","One tiny yes could open a whole universe 🌙"];b.style.transform="translate("+((Math.random()*22)-11)+"px,"+((Math.random()*12)-6)+"px)";document.querySelector(".lead").textContent=lines[Math.floor(Math.random()*lines.length)]}
+const notes=[
+"💗 Jan, you are my everything. You’ve been there with me in so many ways, and I hope you know how much you mean to me. You’re not just someone I love — you’re my favourite person, my comfort, and such a precious part of my life. I love you so, so much, Jannnnn. 🥹❤️🫶🏻💕💖",
+"🌙 If the moon ever went dark at night, the sky would still feel bright because your face shines brighter than the moon, my darling. No moonlight could ever compete with your smile. You’re my own little piece of magic. 🌙💗😘",
+"✨ Remember when we used to talk on phone calls while you were in the hostel, talking about the stars and the moon? You’d say the stars were going “jige jige jige” — and that memory still makes me smile. You’re my jige jige Jan, the brightest little star in my sky. Love you! ⭐💜🥹",
+"🧸 I just want to hug you so tightly and give you a whole lot of kisses, my darling. The kind of hug where I don’t want to let go for a while, and all the kisses that say what words can’t. Until I can do that in person, here’s a big virtual hug and lots of kisses. 🤗😘💋💗",
+"💗 One promise from me, Jan: I’ll keep finding little ways to make you smile, listen when you need me, celebrate your wins, and remind you how loved you are — not just on your birthday, but on the ordinary days too. ♡"
+];
+function showNote(i){const el=document.getElementById("msg");el.textContent=notes[i];el.classList.remove("show");void el.offsetWidth;el.classList.add("show");const emojis=["💗","✨","🌙","💜"];for(let j=0;j<5;j++)setTimeout(()=>floatHeart(emojis[Math.floor(Math.random()*emojis.length)]),j*120)}
+const rotating=["“If I could, I'd put your name in every constellation.”","“You make ordinary moments feel like little miracles.”","“Somewhere under these stars, my favourite person is you.”","“The moon is lovely, but I'd still rather look at you.”","“A thousand little stars, one very big feeling: you.”"];
+let noteIndex=Math.floor(Math.random()*rotating.length);document.getElementById("rotatingNote").textContent=rotating[noteIndex];
+setInterval(()=>{noteIndex=(noteIndex+1)%rotating.length;const el=document.getElementById("rotatingNote");el.style.opacity=0;setTimeout(()=>{el.textContent=rotating[noteIndex];el.style.opacity=1},250)},6500);
+function updateCountdown(){const r=birthdayTime-Date.now();if(r<=0){showBirthday();return}document.getElementById("days").textContent=String(Math.floor(r/86400000)).padStart(2,"0");document.getElementById("hours").textContent=String(Math.floor(r%86400000/3600000)).padStart(2,"0");document.getElementById("minutes").textContent=String(Math.floor(r%3600000/60000)).padStart(2,"0");document.getElementById("seconds").textContent=String(Math.floor(r%60000/1000))}
+setInterval(()=>{if(!document.getElementById("countPage").classList.contains("hidden"))updateCountdown()},1000);
+let birthdayShown=false;
+function showBirthday(){document.getElementById("welcome").classList.add("hidden");document.getElementById("countPage").classList.add("hidden");document.getElementById("birthday").classList.add("show");if(!birthdayShown){birthdayShown=true;fireworks()}}
+function floatHeart(symbol){const e=document.createElement("span");e.className="heart";e.textContent=symbol;e.style.left=Math.random()*95+"%";e.style.fontSize=(18+Math.random()*22)+"px";e.style.setProperty("--t",(3+Math.random()*3)+"s");document.getElementById("phone").appendChild(e);setTimeout(()=>e.remove(),6500)}
+function fireworks(){const colors=["🎆","🎇","💖","💕","🌸","💐","✨","💜","🎉","🌟"];let n=0;const timer=setInterval(()=>{for(let i=0;i<5;i++)floatHeart(colors[Math.floor(Math.random()*colors.length)]);n++;if(n>22)clearInterval(timer)},170)}
+</script>
+</body>
+</html>
